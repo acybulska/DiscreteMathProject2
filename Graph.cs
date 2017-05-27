@@ -24,7 +24,7 @@ namespace DiscreteMathProject2
             int i = 0;
             foreach (var vertex in vertices)
             {
-                vertex.value = rnd.Next(1, 101); // Vertice's value is between 1 and 100
+                vertex.value = rnd.Next(1, 101); // Vertex's value is between 1 and 100
                 vertex.edgesNumber = rnd.Next(1, Convert.ToInt32(0.1 * size)); // amount of edges connecting each vertex
                 vertex.index = i;
                 ++i;
@@ -51,20 +51,6 @@ namespace DiscreteMathProject2
 
                 }
             }
-
-            //for (int i = 0; i < vertices[i].edgesNumber; ++i)
-            //{
-            //    int vertex2Index= rnd.Next(vertices[i].index + 1, size);
-            //    for(int j=0;j<vertices[i].edgesSet;++j)
-            //    {
-            //        int k = 0;
-            //        if(vertex2Index==vertices[i].edges[k].vertex2)
-            //        {
-
-            //        }
-            //    }
-
-            //}
         }
 
         public void CreateGraph()

@@ -1,1 +1,6 @@
 C:\Users\Lisa\Documents\Visual Studio 2015\Projects\DiscreteMathProject2\bin\Debug\DiscreteMathProject2.exe.config
+C:\Users\Lisa\Documents\Visual Studio 2015\Projects\DiscreteMathProject2\bin\Debug\DiscreteMathProject2.exe
+C:\Users\Lisa\Documents\Visual Studio 2015\Projects\DiscreteMathProject2\bin\Debug\DiscreteMathProject2.pdb
+C:\Users\Lisa\Documents\Visual Studio 2015\Projects\DiscreteMathProject2\obj\Debug\DiscreteMathProject2.csprojResolveAssemblyReference.cache
+C:\Users\Lisa\Documents\Visual Studio 2015\Projects\DiscreteMathProject2\obj\Debug\DiscreteMathProject2.exe
+C:\Users\Lisa\Documents\Visual Studio 2015\Projects\DiscreteMathProject2\obj\Debug\DiscreteMathProject2.pdb
