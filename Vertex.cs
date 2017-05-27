@@ -9,6 +9,14 @@ namespace DiscreteMathProject2
     public class Vertex
     {
         public int index { get; set; }
-        public int data { get; set; }
+        public int value { get; set; }
+        public int edgesNumber { get; set; }
+        public int edgesSet { get; set; }
+
+        public Vertex()
+        {
+            edgesSet = 0;
+        }
+      //public List<Edge> edges = new List<Edge>();
     }
 }

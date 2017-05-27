@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DiscreteMathProject2
 {
-    class Graph<T>
+    public class Graph<T>
     {
         private static int size;
         private List<Vertex> vertices=new List<Vertex>(size);
-        private List<Edge>  edges =new List<Edge>();
+        public Edge edges = new Edge(size);
+
 
         public void SetSize()
         {
@@ -23,23 +24,47 @@ namespace DiscreteMathProject2
             int i = 0;
             foreach (var vertex in vertices)
             {
-                vertex.data = rnd.Next(1, 101);
+                vertex.value = rnd.Next(1, 101); // Vertice's value is between 1 and 100
+                vertex.edgesNumber = rnd.Next(1, Convert.ToInt32(0.1 * size)); // amount of edges connecting each vertex
                 vertex.index = i;
-                i++;
+                ++i;
             }
         }
 
         public void SetEdges()
         {
             Random rnd = new Random();
-            foreach (var vertex in vertices)
+
+            for (int i = 0; i < size; ++i)
             {
-                int edgesNumber = rnd.Next(1,Convert.ToInt32(0.1*size));
-                for (int i = 0; i < edgesNumber; ++i)
+                for (int j = 0; j < vertices[i].edgesNumber; ++j)
                 {
-                    
+                    int vertex = rnd.Next(i + 1, size);
+                    if (edges.edges[i, vertex] == 0)
+                    {
+                        if (vertices[vertex].edgesSet <= vertices[vertex].edgesNumber)
+                        {
+                            edges.edges[i, vertex] = rnd.Next(1, 101);
+                            edges.edges[vertex, i] = edges.edges[i, vertex];
+                        }
+                    }
+
                 }
             }
+
+            //for (int i = 0; i < vertices[i].edgesNumber; ++i)
+            //{
+            //    int vertex2Index= rnd.Next(vertices[i].index + 1, size);
+            //    for(int j=0;j<vertices[i].edgesSet;++j)
+            //    {
+            //        int k = 0;
+            //        if(vertex2Index==vertices[i].edges[k].vertex2)
+            //        {
+
+            //        }
+            //    }
+
+            //}
         }
 
         public void CreateGraph()
