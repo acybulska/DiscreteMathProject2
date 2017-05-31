@@ -64,7 +64,7 @@ namespace DiscreteMathProject2
 
         public void CreateGraph()
         {
-            SetVertices();
+            //SetVertices();
             
             //SetEdges();
             Console.ReadKey();
