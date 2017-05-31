@@ -10,6 +10,8 @@ namespace DiscreteMathProject2
     {
         static void Main(string[] args)
         {
+            Graph graph = new Graph(100);
+            graph.CreateGraph();
         }
     }
 }

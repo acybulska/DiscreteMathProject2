@@ -13,10 +13,6 @@ namespace DiscreteMathProject2
         public int edgesNumber { get; set; }
         public int edgesSet { get; set; }
 
-        public Vertex()
-        {
-            edgesSet = 0;
-        }
       //public List<Edge> edges = new List<Edge>();
     }
 }

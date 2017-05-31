@@ -6,28 +6,34 @@ using System.Threading.Tasks;
 
 namespace DiscreteMathProject2
 {
-    public class Graph<T>
+    public class Graph
     {
-        private static int size;
-        private List<Vertex> vertices=new List<Vertex>(size);
-        public Edge edges = new Edge(size);
+        private int size;
+        private List<Vertex> vertices;
+        //public Edge edges = new Edge(size);
+        public int[,] edges;
 
-
-        public void SetSize()
+        public Graph(int size)
         {
-            size = 100;
+            this.size = size;
+            vertices = new List<Vertex>(size);
+            edges = new int[size, size];
         }
 
         public void SetVertices()
         {
             Random rnd = new Random();
+            Random rnd2=new Random();
             int i = 0;
             foreach (var vertex in vertices)
             {
                 vertex.value = rnd.Next(1, 101); // Vertex's value is between 1 and 100
-                vertex.edgesNumber = rnd.Next(1, Convert.ToInt32(0.1 * size)); // amount of edges connecting each vertex
+                vertex.edgesSet = 0;
+                int no = Convert.ToInt32(0.1 * size);
+                vertex.edgesNumber = rnd2.Next(1, no); // amount of edges connecting each vertex
                 vertex.index = i;
                 ++i;
+                Console.WriteLine("Vertex value = {0}, edges number = {1}", vertex.value, vertex.edgesNumber);
             }
         }
 
@@ -35,27 +41,33 @@ namespace DiscreteMathProject2
         {
             Random rnd = new Random();
 
-            for (int i = 0; i < size; ++i)
+            for (int i = 0; i < size; i++) // po kolumnach tablicy
             {
-                for (int j = 0; j < vertices[i].edgesNumber; ++j)
+                while (vertices[i].edgesSet == vertices[i].edgesNumber)
                 {
-                    int vertex = rnd.Next(i + 1, size);
-                    if (edges.edges[i, vertex] == 0)
+                    int vertex = rnd.Next(i + 1, size); // losowy wierzchołek wiersza
+
+                    if (vertices[vertex].edgesSet < vertices[vertex].edgesNumber)
                     {
-                        if (vertices[vertex].edgesSet <= vertices[vertex].edgesNumber)
+                        if (edges[i, vertex] == 0)
                         {
-                            edges.edges[i, vertex] = rnd.Next(1, 101);
-                            edges.edges[vertex, i] = edges.edges[i, vertex];
+                            edges[i, vertex] = rnd.Next(1, 101);
+                            edges[vertex, i] = edges[i, vertex];
+                            vertices[vertex].edgesSet++;
+                            vertices[i].edgesSet++;
                         }
                     }
-
+                    Console.WriteLine("Vertex1 = {0}, vertex2 = {1}, value set = {3}",i,vertex,edges[i,vertex]);
                 }
             }
         }
 
         public void CreateGraph()
         {
+            SetVertices();
             
+            //SetEdges();
+            Console.ReadKey();
         }
     }
 }
